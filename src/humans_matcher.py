@@ -25,14 +25,13 @@ from functools import partial
 
 #published messages 
 from hri_msgs.msg import AgeAndGender
-from hri_msgs.msg import BodyLang
 from hri_msgs.msg import Expression
 from hri_msgs.msg import FacialActionUnits
 from hri_msgs.msg import FacialLandmarks
 from hri_msgs.msg import GazeSenderReceiver
 from hri_msgs.msg import GazesStamped
 from hri_msgs.msg import Person
-from hri_msgs.msg import BodyPose
+from hri_msgs.msg import BodyAttitude
 from std_msgs.msg import String
 
 #subscribed messages
@@ -88,28 +87,28 @@ class ListenCompare:
         self.NECK_Y = 0
         self.RIGHT_SHOULDER_X = 0
         self.RIGHT_SHOULDER_Y = 0
-        self.RIGHT_ELBLOW_X = 0
-        self.RIGHT_ELBLOW_Y = 0
+        self.RIGHT_ELBOW_X = 0
+        self.RIGHT_ELBOW_Y = 0
         self.RIGHT_WRIST_X = 0
         self.RIGHT_WRIST_Y = 0
         self.LEFT_SHOULDER_X = 0
         self.LEFT_SHOULDER_Y = 0
-        self.LEFT_ELBLOW_X = 0
-        self.LEFT_ELBLOW_Y = 0
+        self.LEFT_ELBOW_X = 0
+        self.LEFT_ELBOW_Y = 0
         self.LEFT_WRIST_X  = 0
         self.LEFT_WRIST_Y = 0
         self.RIGHT_HIP_X = 0
         self.RIGHT_HIP_Y = 0
         self.RIGHT_KNEE_X = 0
         self.RIGHT_KNEE_Y = 0
-        self.RIGHT_ANKEL_X  = 0
-        self.RIGHT_ANKEL_Y = 0
+        self.RIGHT_ANKLE_X  = 0
+        self.RIGHT_ANKLE_Y = 0
         self.LEFT_HIP_X  = 0
         self.LEFT_HIP_Y = 0
         self.LEFT_KNEE_X  = 0
         self.LEFT_KNEE_Y = 0
-        self.LEFT_ANKEL_X  = 0
-        self.LEFT_ANKEL_Y = 0
+        self.LEFT_ANKLE_X  = 0
+        self.LEFT_ANKLE_Y = 0
         self.LEFT_EYE_X  = 0
         self.LEFT_EYE_Y = 0
         self.RIGHT_EYE_X = 0 
@@ -256,11 +255,8 @@ class ListenCompare:
         Body_ID = "humans/bodies/"+ Body_ID_unique # for a 5 char long ID
 
         x_offset = self.PERSONDATA.roi.x_offset
-        y_offset = self.PERSONDATA.roi.y_offset
         width = self.PERSONDATA.roi.width
-        height = self.PERSONDATA.roi.height
         x_b = self.NOSE_X
-        y_b = self.NOSE_Y
 
         if self.emotion_roi_x < self.landmarks2d_x < self.emotion_roi_x + self.emotion_roi_width:
 
@@ -347,10 +343,10 @@ class ListenCompare:
 
         self.Skele2D_publisher.publish(skele2d)
 
-        self.BodPred_publisher = rospy.Publisher(Body_ID  + "/attitude"  ,BodyPose,queue_size=1)
+        self.BodPred_publisher = rospy.Publisher(Body_ID  + "/attitude"  ,BodyAttitude,queue_size=1)
 
         bodlang = BodyPose()
-        OpenVino_lang = str (self.BODYLANG)
+        OpenVino_lang = str (self.BODYLANG.upper())
 
     
         bodlang.lang = getattr(bodlang,OpenVino_lang)
@@ -410,7 +406,7 @@ class ListenCompare:
                             self.AgeGender_publisher = rospy.Publisher(self.person_ID_topic  + "/demographics"  ,AgeAndGender,queue_size=1)
                             self.AgeGender_publisher.publish(AG)
 
-                            faces_count
+                        
                             
                         
 

@@ -1,7 +1,7 @@
 hri_matcher
 =============
 
-A ROS node that generates unique ids for facial and skeletal data, then matches them in real-time to their known location using OpenVino's re-identification model. Afterwards, a unique person id is generated and assigned to that person's facial and skeletal ids. If either the facial or skeletal facial stopped being detected, the matcher will publish the last detected message. 
+A ROS node that matches the facial and skeletal data in real-time to their known region in interest using OpenVino's re-identification model. Afterwards, a unique person id is generated and assigned to that person's facial and skeletal ids. If either the facial or skeletal facial stopped being detected, the matcher will publish the last detected message. 
 
 The detection relies on the open-source [Intel OpenVINO toolkit](https://docs.openvinotoolkit.org/),
 
