@@ -1,0 +1,9 @@
+<launch>
+  <include file="$(env HOME)/catkin_ws/src/ros_openvino_toolkit/vino_launch/launch/pipeline_people_oss.launch" />
+  <arg name="image_topic" default="/camera/image_raw" />
+  <arg name="publish_viz" default="true" />
+
+  <node name="humans_matcher" pkg="hri_matcher" type="humans_matcher.py" output="screen" >
+  </node> 
+
+</launch>
