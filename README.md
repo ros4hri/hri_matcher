@@ -10,13 +10,13 @@ The detection relies on the open-source [Intel OpenVINO toolkit](https://docs.op
 Installation
 ------------
 
-- Follow first the general [ROS4HRI installation instructions](https://caidin.brl.ac.uk/ROS4HRI/main/blob/master/README.md).
+- Follow first the general [ROS4HRI installation instructions](https://github.com/ros4hri/ros4hri/blob/master/README.md).
 
-- Install the [`hri_msgs` package](https://git.brl.ac.uk/ROS4HRI/hri_msgs/blob/master/README.md)
+- Install the [`hri_msgs` package](https://github.com/ros4hri/hri_msgs/blob/master/README.md)
 
-- Install the [`hri_faces` package](https://caidin.brl.ac.uk/ROS4HRI/hri_faces/blob/master/README.md)
+- Install the [`hri_faces` package](https://github.com/ros4hri/hri_faces/blob/master/README.md)
 
--  Install the [`hri_skeletons` package](https://caidin.brl.ac.uk/ROS4HRI/hri_skeletons/blob/master/README.md)
+-  Install the [`hri_skeletons` package](https://github.com/ros4hri/hri_skeletons/blob/master/README.md)
 
 - then:
 
